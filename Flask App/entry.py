@@ -19,10 +19,15 @@ def api_id(name):
 def get_details():
 	title=request.args.get('title',None)
 	md5=request.args.get('md5',None)
+	isbn=request.args.get('isbn',None)
 	print(md5)
+	if (len(isbn)==10 or len(isbn)==13):
+		isbn=isbn
+	else:
+		isbn=0
 	download_link=dl.getLink(md5)
 
-	return render_template('bookpage.html',title=title,link=download_link)
+	return render_template('bookpage.html',title=title,link=download_link,isbn=isbn)
 
 if __name__ == "__main__":
     app.run()
