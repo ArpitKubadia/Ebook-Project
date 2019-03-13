@@ -15,7 +15,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url('new_tree.png'); 
+    background: url('/static/new_tree.png'); 
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center center;
@@ -63,7 +63,7 @@
         visibility: visible;
     height: 45px;
     width: 60px;
-    background-image: url('apple.png');
+    background-image: url('/static/apple.png');
     float: right;
     display: flex;
     justify-content: center;
@@ -79,11 +79,17 @@
         $(document).ready(function(){
             $('.searchbar').mouseenter(function(){
                 console.log("hovered")
-                $('body').css("background-image","url('tree_notxt.png')");
+                $('body').css("background-image","url('/static/tree_notxt.png')");
             });
             $('.searchbar').mouseleave(function(){
                 console.log("hovered")
-                $('body').css("background-image","url('new_tree.png')");
+                $('body').css("background-image","url('/static/new_tree.png')");
+            });
+
+            $(".search_input").on('keyup', function (e) {
+                if (e.keyCode == 13) {
+                myFunction();
+                }
             });
         });
     </script>
@@ -97,7 +103,7 @@
       		<div class="d-flex justify-content-center h-100">
         		<div class="searchbar" >
           			<input class="search_input" type="text" name="" placeholder="Search..." id="mySearch">
-          			<input type="image" class="search_icon" onclick="myFunction()" src="apple.png"></a>
+          			<input type="image" class="search_icon" onclick="myFunction()" src="/static/apple.png"></a>
         		</div>
       		</div>
     	</div>
