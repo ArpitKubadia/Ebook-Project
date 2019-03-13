@@ -2,35 +2,138 @@
 <html>
 <head>
 	<title>Results</title>
-	<style type="text/css">
-		table{
-			border-style: dashed;
-		}
-		tr{
-			border:solid;
-		}
-		th,td{
-			text-align: center;
-		}
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<style>
+
+
+	body {
+
+	    padding: 0;
+	    margin-top: 50px;
+	    height: 100%;
+	    width: 100%;
+	    background-repeat: no-repeat;
+	    background-color: #07051a;
+	    background-blend-mode:  screen;
+	    
+	}
+
+	form{
+	    position: relative;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%,-50%);
+	    transition: all 1s;
+	    width: 52px;
+	    height: 50px;
+	    background: white;
+	    box-sizing: border-box;
+	    border-radius: 25px;
+	    border: 4px solid white;
+	    padding: 5px;
+	}
+
+	input{
+	    position: absolute;
+	    top: 0;
+	    left: -5.5px;
+	    width: 100%;
+	    height: 42.5px;
+	    line-height: 30px;
+	    outline: 0;
+	    border: 0;
+	    display: none;
+	    font-size: 1em;
+	    border-radius: 20px;
+	    padding: 20px;
+	}
+
+	.fa{
+	    box-sizing: border-box;
+	    padding: 10px;
+	    width: 42.5px;
+	    height: 42.5px;
+	    position: absolute;
+	    top: 0;
+	    right:0px;
+	    border-radius: 50%;
+	    color: #07051a;
+	    text-align: center;
+	    font-size: 1.2em;
+	    transition: all 1s;
+	}
+
+	form:hover{
+	    width: 200px;
+	    cursor: pointer;
+	}
+
+	form:hover input{
+	    display: block;
+	}
+
+	form:hover .fa{
+	    background: #07051a;
+	    color: white;
+	}
+
+	.book_rows{
+		border-radius: 15px;
+		font-family: serif;
+		background-color: gray;
+	}
+
+</style>
 </head>
 <body>
-	<table>
-		<tr>
-			<th>ID</th>
-			<th>Title</th>
-			<th>ISBN</th>
-		</tr>
-		{%for book in result%}
+
+
+<div class='container-fluid'>
+<div class='row'>
+	
+	<div class='col-lg-4'>
+		<h3 align='center' style=" margin-left:170px; color:white ;font-family: Palatino; text-decoration-line: overline underline;text-decoration-style:line;">
+			<i>Find your book</i></h3>
+	</div>
+	<div class='col-lg-8'>
+		<form action="">
+  			<input type="search" placeholder="Reading Is Growing">
+  			<i class="fa fa-search"></i>
+  			</form>
+	</div>
+</div>
+</div>
+
+
+<div class='container-fluid'>
+<div class='row'><br><br></div>
+
+
+
+			
 		
-		<tr>
-		<td>{{book.id}}</td>
-		<td><a href="/details?title={{book.title}}&md5={{book.md5}}&isbn={{book.isbn}}">{{book.title}}</a></td>
-		<td>{{book.isbn}}</td>
-		</tr>
+		<div class='row'  >
+		<div class='col-lg-12'>
+
+		{%for book in result%}
+		<div class="book_rows">
+		<a href="/details?title={{book.title}}&md5={{book.md5}}&isbn={{book.isbn}}">{{book.title}}</a>
+		</div>
+		
 		
 		{% endfor %}
-	</table>
+	
+
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>	
 </body>
 </html>
 
