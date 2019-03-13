@@ -15,21 +15,23 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url('tree_edited.png'); 
+    background: url('new_tree.png'); 
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center center;
     }
 
     .searchbar{
-    margin-top:49%;
-    height: 60px;
+        visibility: hidden;
+    margin-top:48%;
+    height: 80px;
     background-color: #353b48;
     border-radius: 30px;
     padding: 10px;
     }
 
     .search_input{
+        visibility: visible;
     color: white;
     border: 0;
     outline: 0;
@@ -41,28 +43,50 @@
     }
 
     .searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 450px;
+        visibility: visible;
+        height: 65px;
+        opacity: 50%;
+    background-color: #235433;
+    border-radius: 30px;
+    padding: 10px;
+    width: 650px;
     caret-color:red;
     transition: width 0.4s linear;
     }
 
     .searchbar:hover > .search_icon{
-    background: white;
+        visibility: hidden;
     color: #e74c3c;
     }
 
     .search_icon{
-    height: 40px;
-    width: 40px;
+        visibility: visible;
+    height: 45px;
+    width: 60px;
+    background-image: url('apple.png');
     float: right;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    color:white;
     }
+
+    
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.searchbar').mouseenter(function(){
+                console.log("hovered")
+                $('body').css("background-image","url('tree_notxt.png')");
+            });
+            $('.searchbar').mouseleave(function(){
+                console.log("hovered")
+                $('body').css("background-image","url('new_tree.png')");
+            });
+        });
+    </script>
   </head>
 
 
@@ -73,7 +97,7 @@
       		<div class="d-flex justify-content-center h-100">
         		<div class="searchbar" >
           			<input class="search_input" type="text" name="" placeholder="Search..." id="mySearch">
-          			<a href="#" class="search_icon" onclick="myFunction()"><i class="fas fa-search"></i></a>
+          			<input type="image" class="search_icon" onclick="myFunction()" src="apple.png"></a>
         		</div>
       		</div>
     	</div>
