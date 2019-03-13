@@ -1,7 +1,7 @@
 from flask import Flask, render_template, flash, redirect, request, session, abort
 import search
 import dl
-import metadata_book
+#import metadata_book
 
 app = Flask(__name__)
 TEMPLATES_AUTO_RELOAD = True
@@ -27,7 +27,7 @@ def get_details():
 	else:
 		isbn=0
 	download_link=dl.getLink(md5)
-	meta_data=meta1(title,isbn)
+	#meta_data=meta1(title,isbn)
 	return render_template('bookpage.html',title=title,link=download_link,isbn=isbn)
 
 if __name__ == "__main__":
