@@ -66,6 +66,6 @@ def meta1(title,isbn):
     #    json.dump(data, write_file)
     jason_data=json.dumps(data)
     return(jason_data)
-#if __name__ == '__main__':
-    #print('main called')
-#   meta1('harry potter and the order of the phoenix',1408855674)
+if __name__ == '__main__':
+   print('main called')
+   meta1('harry potter and the order of the phoenix',1408855674)
