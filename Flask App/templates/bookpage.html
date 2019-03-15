@@ -7,6 +7,11 @@
 <h1>{{title}}</h1>
 <a href="{{link}}">{{link}}</a>
 <h2>ISBN: {{isbn}}</h2>
+<h3>{{metadata.title}}</h3>
 <p>{{metadata}}</p>
+<img src="{{metadata.book_image}}">
+{% for review in metadata.reviews %}
+<p>{{review}}</p>
+{% endfor %}
 </body>
 </html>

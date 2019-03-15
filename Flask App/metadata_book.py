@@ -64,8 +64,8 @@ def meta1(title,isbn):
         pass
     #with open("meta_data_file.json", "w") as write_file:
     #    json.dump(data, write_file)
-    jason_data=json.dumps(data)
-    return(jason_data)
+    #jason_data=json.dumps(data)
+    return(data)
 if __name__ == '__main__':
    print('main called')
    meta1('harry potter and the order of the phoenix',1408855674)
