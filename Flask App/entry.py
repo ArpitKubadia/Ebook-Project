@@ -2,6 +2,10 @@ from flask import Flask, render_template, flash, redirect, request, session, abo
 import search
 import dl
 import metadata_book
+import wget
+import urllib.parse as urlparse
+import os
+
 
 app = Flask(__name__)
 TEMPLATES_AUTO_RELOAD = True
@@ -28,8 +32,21 @@ def get_details():
 		isbn=0
 	download_link=dl.getLink(md5)
 	meta_data=metadata_book.meta1(title,isbn)
+	first, extension = os.path.splitext(download_link)
+	
+	path = urlparse.urlparse(download_link).path
+	ext = os.path.splitext(path)[1]
+	print (ext)
 	print(meta_data)
-	return render_template('bookpage.html',title=title,link=download_link,isbn=isbn,metadata=meta_data)
+	return render_template('bookpage.html',title=title,link=download_link,isbn=isbn,metadata=meta_data,extension=ext)
+
+@app.route('/download',methods=['GET'])
+def downloading():
+	link=request.args.get('link',None)
+	print("Link Received")
+	wget.download(link)
+	print("Downloading")
+	return render_template('download.html')
 
 if __name__ == "__main__":
     app.run()
