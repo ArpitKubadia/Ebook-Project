@@ -5,7 +5,7 @@ import metadata_book
 import wget
 import urllib.parse as urlparse
 import os
-
+from datetime import datetime
 
 app = Flask(__name__)
 TEMPLATES_AUTO_RELOAD = True
@@ -30,10 +30,15 @@ def get_details():
 		isbn=isbn
 	else:
 		isbn=0
+
+	start=datetime.now()	
 	download_link=dl.getLink(md5)
 	meta_data=metadata_book.meta1(title,isbn)
 	first, extension = os.path.splitext(download_link)
-	
+	end=datetime.now()
+	time=end-start
+	time=time.total_seconds()
+	print("TIME: ",time)
 	path = urlparse.urlparse(download_link).path
 	ext = os.path.splitext(path)[1]
 	print (ext)

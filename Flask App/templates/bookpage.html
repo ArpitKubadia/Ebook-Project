@@ -17,6 +17,9 @@
 
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
 
+    <link rel="shortcut icon" type="image/x-icon" href="/static/apple.ico" />
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js"></script>
     <style>
         body{
@@ -135,6 +138,21 @@
     overflow-y: auto;
 }
 
+
+.card .user{
+    border-radius: 5%;
+    display: block;
+    height: 120px;
+    margin: -55px auto 0;
+    overflow: hidden;
+    width: 120px;
+}
+
+.card .user img{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 4px solid #FFFFFF;
+    width: 100%;
+}
     </style>
 </head>
 <body>
@@ -153,8 +171,8 @@
 <div class="row">
   <div class='col-lg-4'>
 
-        <h2 align='center' style=" color:white ;font-family: Palatino; text-decoration-line: overline underline;text-decoration-style:line;">
-           <b> <i>Find your book</i><b></h2>
+        <h2 align='center' style=" color:white ;font-family: Palatino; text-decoration-line: overline underline;text-decoration-style:line;" onclick="mainPage()">
+           <b> <i>The Tree of Knowledge</i><b></h2>
 
   </div>
   <div class='col-lg-4 col-lg-offset-2'>
@@ -194,7 +212,7 @@
                             
                         </div>
                         <div class="user">
-                            <img class="img-responsive" src={{metadata.book_image}}/>
+                            <img class="img-thumbnail" src={{metadata.book_image}}/>
                         </div>
                         <div class="content">
                             <div class="main">
@@ -374,6 +392,10 @@
 
 
     });
+
+    function mainPage(){
+        window.open("/"+x, '_self');
+    }
     
 </script>
 
