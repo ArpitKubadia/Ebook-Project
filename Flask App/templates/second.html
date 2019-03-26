@@ -17,12 +17,12 @@
 	    height: 100%;
 	    width: 100%;
 	    background-repeat: no-repeat;
-	    background-color: #FFE4B5;
+	    background-color: #F0E68C;
 	    background-blend-mode:  screen;
 	    
 	}
 
-	form{
+	#search_bar{
 	    position: relative;
 	    top: 50%;
 	    left: 50%;
@@ -68,16 +68,16 @@
 	    transition: all 1s;
 	}
 
-	form:hover{
+	#search_bar:hover{
 	    width: 200px;
 	    cursor: pointer;
 	}
 
-	form:hover input{
+	#search_bar:hover input{
 	    display: block;
 	}
 
-	form:hover .fa{
+	#search_bar:hover .fa{
 	    background: #07051a;
 	}
 
@@ -113,6 +113,8 @@
 		color: yellow;
 	}
 </style>
+<script type="text/javascript" src="/static/jquery.simplePagination.js"></script>
+<link type="text/css" rel="stylesheet" href="/static/simplePagination.css"/>
 </head>
 <body>
 
@@ -125,10 +127,10 @@
 			<i>The Tree of Knowledge</i></h3>
 	</div>
 	<div class='col-lg-8'>
-		<form action="">
-  			<input type="search" placeholder="Reading Is Growing">
-  			<i class="fa fa-search"></i>
-  			</form>
+		<div id="search_bar">
+            <input type="search" placeholder="Reading Is Growing" id="search_input">
+            <i class="fa fa-search" onclick="myFunction()"></i>
+		</div>
 	</div>
 </div>
 </div>
@@ -159,10 +161,21 @@
 <div class="col-lg-3"></div>
 </div>
 </div>
+<script type="text/javascript">
+	function myFunction()
+        {
+            //alert("Open");
+            var x=document.getElementById("search_input").value;
+            //alert(x)
+            window.open("/search/"+x, '_self');
 
+        }
+</script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>	
+
+
 </body>
 </html>
 

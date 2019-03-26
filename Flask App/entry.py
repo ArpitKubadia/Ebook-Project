@@ -10,6 +10,8 @@ from datetime import datetime
 app = Flask(__name__)
 TEMPLATES_AUTO_RELOAD = True
 
+
+
 @app.route("/")
 def hello():
     return render_template('input.html')
@@ -31,14 +33,21 @@ def get_details():
 	else:
 		isbn=0
 
-	start=datetime.now()	
+	start=datetime.now()
+
+	#Sends MD5 to dl.py to get Download link
 	download_link=dl.getLink(md5)
+
+	#Sends title and isbn to google books api to get book details
 	meta_data=metadata_book.meta1(title,isbn)
-	first, extension = os.path.splitext(download_link)
+
+	#To measure performance
 	end=datetime.now()
 	time=end-start
 	time=time.total_seconds()
 	print("TIME: ",time)
+
+	#Getting book's extension from the download link
 	path = urlparse.urlparse(download_link).path
 	ext = os.path.splitext(path)[1]
 	print (ext)

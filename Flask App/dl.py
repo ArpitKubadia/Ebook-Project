@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup as soup
 import pprint
 
 p1="http://lib1.org/fiction/"
-def getLink(id):
-	url=p1+str(id)
+def getLink(md5):
+	url=p1+str(md5)
 	uClient=uReq(url)
 	page_html=uClient.read()
 	uClient.close()
