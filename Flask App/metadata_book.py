@@ -4,7 +4,9 @@ from googleapiclient.discovery import build
 import urllib.request
 import json
 import fetch_reviews
-api_key='AIzaSyAMHyrWXEE4YmI-ppBxDFRPTr06R-6sgO4'
+#ADD Your API KEY HERE
+#api_key=''
+
 data={}
 def meta1(title,isbn):
     if isbn!=0:
